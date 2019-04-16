@@ -65,7 +65,16 @@ class Property
     find_property = db.exec_prepared("find", values)
     return find_property[0]
     db.close()
+  end
 
+  def Property.find_by_date(date)
+    db = PG.connect({dbname: 'property', host: 'localhost'});
+    sql = "SELECT * FROM property WHERE year_built = $1"
+    values = [date]
+    db.prepare("find_by_date", sql)
+    find_property_by_date = db.exec_prepared("find_by_date", values)
+    return find_property_by_date[0]
+    db.close()
   end
 
 end

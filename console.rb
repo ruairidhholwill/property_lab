@@ -15,7 +15,8 @@ property2.save()
 # property1.delete()
 property2.num_bedrooms = 15
 property2.update()
-p Property.find(property1.id)
+Property.find(property1.id)
+p Property.find_by_date(property1.year_built)
 
 
 # p Property.all()
